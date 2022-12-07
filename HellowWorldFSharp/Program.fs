@@ -9,6 +9,8 @@ let greetPerson firstName age = $"Hello {firstName}, you are {age} years old"
 let text = greetPerson "Mario" 56
 printfn $"{text}"
 
+// exercise 3.1
+
 let myFunction x y z =
     let inProgress = x + y
     let answer = inProgress * z
