@@ -18,3 +18,31 @@ let myFunction x y z =
 
 let myAnswer = myFunction 10 20 30
 printfn $"{myAnswer}"
+
+//
+
+let firstName = "Frank"
+let lastName = "Schmidt"
+let fullName = $"{firstName} {lastName}"
+let greetingText = $"Greetings, {fullName}"
+printfn $"{greetingText}"
+
+//
+
+let greetingText2 =
+    let fullName =
+        let firstName = "Frank"
+        let lastName = "Schmidt"
+        $"{firstName} {lastName}"
+    $"Greetings, {fullName}"
+printfn $"{greetingText2}"
+
+//
+
+let greetingTextWithFunction person =
+    let makeFullName firstName lastName =
+        $"{firstName} {lastName}"
+    let fullName = makeFullName "Frank" "Schmidt"
+    $"Greetings, {fullName} from {person}"
+let msg = greetingTextWithFunction "Mario"
+printfn $"{msg}"
