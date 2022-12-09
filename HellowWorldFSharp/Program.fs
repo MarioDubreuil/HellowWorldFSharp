@@ -46,3 +46,10 @@ let greetingTextWithFunction person =
     $"Greetings, {fullName} from {person}"
 let msg = greetingTextWithFunction "Mario"
 printfn $"{msg}"
+
+let add a b =
+    let answer = a + b
+    answer
+
+let addResult = add 3 5
+printfn $"{addResult}"
