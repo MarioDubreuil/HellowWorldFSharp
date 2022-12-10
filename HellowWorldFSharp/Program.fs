@@ -206,3 +206,46 @@ driveImmutableV2 200 0
 
 let nameTuple = "isaac", "abraham"
 let firstNameTuple, lastNameTuple = nameTuple
+
+//
+
+let nameAndAge = "Jane", "Smith", 25
+let firstName17, lastName17, _ = nameAndAge
+let _, _, Age17 = nameAndAge
+
+//
+
+let makeDoctor name =
+    let _, lastName = name
+    "Dr", lastName
+makeDoctor ("Steve", "Smith")
+makeDoctor ("Steve", 17)
+makeDoctor (24.3, 17)
+
+//
+
+let makeDoctor2 (name: string * string) =
+    let _, lastName = name
+    "Dr", lastName
+makeDoctor2 ("Steve", "Smith")
+
+//
+
+let makeDoctor3 (_, lastName) =
+    "Dr", lastName
+makeDoctor3 ("Steve", "Smith")
+makeDoctor3 (0, "Smith")
+makeDoctor3 (24, 1.2)
+
+//
+
+let makeDoctor4 (_, lastName : string) =
+    "Dr", lastName
+makeDoctor4 ("Steve", "Smith")
+makeDoctor4 (0, "Smith")
+
+//
+
+let makeDoctor5 (_ : string, lastName : string) =
+    "Dr", lastName
+makeDoctor5 ("Steve", "Smith")
