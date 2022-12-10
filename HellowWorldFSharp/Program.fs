@@ -162,5 +162,47 @@ let addSeveralDays() =
     ignore (addDays 3)
     ignore (addDays 5)
     addDays 7
-addSeveralDays
+addSeveralDays()
 
+//
+
+let mutable gas = 100.0
+let drive distance =
+    if distance = "far" then gas <- gas / 2.0
+    elif distance = "medium" then gas <- gas - 10.0
+    else gas <- gas - 1.0
+
+drive "far"
+drive "medium"
+drive "short"
+gas
+
+//
+
+let driveImmutable gas distance =
+    if distance = "far" then gas / 2.0
+    elif distance = "medium" then gas - 10.0
+    else gas - 1.0
+let gasImmutable = 100.0
+let gasImmutableFirstState = driveImmutable gasImmutable "far"
+let gasImmutableSecondState = driveImmutable gasImmutableFirstState "medium"
+let gasImmutableFinalState = driveImmutable gasImmutableSecondState "short"
+gasImmutableFinalState
+
+// ex 4.3
+
+let driveImmutableV2 gas distance =
+    if distance > 50 then gas / 2.0
+    elif distance > 25 then gas - 10.0
+    elif distance > 0 then gas - 1.0
+    else gas
+driveImmutableV2 200 51
+driveImmutableV2 200 50
+driveImmutableV2 200 24
+driveImmutableV2 200 1
+driveImmutableV2 200 0
+
+//
+
+let nameTuple = "isaac", "abraham"
+let firstNameTuple, lastNameTuple = nameTuple
