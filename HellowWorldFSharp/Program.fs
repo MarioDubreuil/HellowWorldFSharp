@@ -1,4 +1,7 @@
 ﻿// For more information see https://aka.ms/fsharp-console-apps
+
+open System
+
 printfn "Hello from F#"
 
 let name = "Mario"
@@ -249,3 +252,21 @@ makeDoctor4 (0, "Smith")
 let makeDoctor5 (_ : string, lastName : string) =
     "Dr", lastName
 makeDoctor5 ("Steve", "Smith")
+
+//
+
+let nameAndAge34 = ("Peter", "Pan"), 17
+let name34, age34 = nameAndAge34
+let firstName34, lastName34 = name34
+let (firstName34b, lastName34b), age34b = nameAndAge34
+
+// ex 5.1
+let buildPerson34 (firstName : string) (lastName : string) (age : int) =
+    let personType = if age < 18 then "child" else "adult"
+    (firstName, lastName), (age, personType)
+let all34 = buildPerson34 "Steve" "Palmer" 17
+let (firstName34c, _), (_, personType34c) = buildPerson34 "Peter" "Magoo" 85
+
+//
+
+let parsed, theDate = System.DateTime.TryParse "10 Dec 2022"
