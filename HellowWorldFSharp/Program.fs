@@ -270,3 +270,86 @@ let (firstName34c, _), (_, personType34c) = buildPerson34 "Peter" "Magoo" 85
 //
 
 let parsed, theDate = System.DateTime.TryParse "10 Dec 2022"
+
+//
+
+type Person01 =
+    {
+        FirstName : string
+        LastName : string
+        Age : int
+    }
+
+type Person02 = { FirstName : string; LastName : string; Age : int }
+
+let isaac =
+    {
+        FirstName = "Issac"
+        LastName = "Abraham"
+        Age = 42
+    }
+
+let fullName292 = $"{isaac.FirstName} {isaac.LastName}"
+
+//
+
+type Address296 =
+    {
+        Line1 : string
+        Line2 : string
+        Town : string
+        Country : string
+    }
+type Person296 =
+    {
+        Name : string * string
+        Address : Address296
+    }
+
+let isaac296 =
+    {
+        Name = "Isaac", "Abraham"
+        Address =
+            {
+                Line1 = "125 5th avenue"
+                Line2 = ""
+                Town = "Buffalo"
+                Country = "USA"
+            }
+    }
+
+// ex 5.2
+
+type Name323 =
+    {
+        FirstName : string
+        LastName : string
+    }
+type PersonInfo323 =
+    {
+        Age : int
+        PersonType : string
+    }
+type Person323 =
+    {
+        Name : Name323
+        Person : PersonInfo323
+    }
+    
+let buildPerson323 firstName lastName age =
+    let personType = if age < 18 then "child" else "adult"
+    let person =
+        {
+            Name =
+                {
+                    FirstName = firstName
+                    LastName = lastName
+                }
+            Person =
+                {
+                    Age = age
+                    PersonType = personType
+                }
+        }
+    person
+let person323 = buildPerson323 "Steve" "Palmer" 18
